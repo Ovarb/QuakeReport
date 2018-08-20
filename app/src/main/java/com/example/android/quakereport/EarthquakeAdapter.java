@@ -1,7 +1,6 @@
 package com.example.android.quakereport;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import org.joda.time.DateTime;
+
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalDateTime;
+import org.threeten.bp.ZoneOffset;
+import org.threeten.bp.format.DateTimeFormatter;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class EarthquakeAdapter extends ArrayAdapter {
 
@@ -51,20 +54,15 @@ public class EarthquakeAdapter extends ArrayAdapter {
         // Find the TextView in the list_item.xml layout with the ID tw_date
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.tw_date);
 
-        // Get the time of the eartquake from the current Eartquake object, convert it to String and
+        // Get the time of the eartquake from the current Earthquake object, convert it to String by specified format and
         // set this text on the tw_date TextView
-        int time = currentEartquake.getmEpoch();
-        DateTime dateTime = new DateTime(time*1000L);
-        String ddd = dateTime.toString();
-        dateTextView.setText(ddd);
+        LocalDateTime dateTime =  LocalDateTime.ofEpochSecond(currentEartquake.getmEpochSeconds(), 0, ZoneOffset.UTC);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
+        dateTextView.setText(dateTime.format(formatter));
 
 
-
-
-
-
-        // Return the whole list item layout (containing 2 TextViews)
-        // so that it can be shown in the ListView
+        // Return the whole list item layout (containing 3 TextViews) so that it can be shown in the ListView
         return listItemView;
     }
 }

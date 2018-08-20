@@ -5,13 +5,13 @@ public class Earthquake {
     //instance fields
     private double mMagnitude;
     private String mPlace;
-    private int mEpoch;
+    private long mEpochSeconds;
 
     //constructor
-    public Earthquake(double mMagnitude, String mPlace, int mEpoch) {
+    public Earthquake(double mMagnitude, String mPlace, long mEpochMilliSeconds) {
         this.mMagnitude = mMagnitude;
         this.mPlace = mPlace;
-        this.mEpoch = mEpoch;
+        this.mEpochSeconds = mEpochMilliSeconds/1000;
     }
 
     public double getmMagnitude() {
@@ -22,7 +22,7 @@ public class Earthquake {
         return mPlace;
     }
 
-    public int getmEpoch() {
-        return mEpoch;
+    public long getmEpochSeconds() {
+        return mEpochSeconds;
     }
 }
