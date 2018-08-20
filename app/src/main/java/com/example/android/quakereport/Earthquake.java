@@ -4,22 +4,22 @@ public class Earthquake {
 
     //instance fields
     private double mMagnitude;
-    private String mPlace;
+    private String mLocation;
     private long mEpochSeconds;
 
     //constructor
-    public Earthquake(double mMagnitude, String mPlace, long mEpochMilliSeconds) {
-        this.mMagnitude = mMagnitude;
-        this.mPlace = mPlace;
-        this.mEpochSeconds = mEpochMilliSeconds/1000;
+    public Earthquake(double magnitude, String location, long epochMilliSeconds) {
+        this.mMagnitude = magnitude;
+        this.mLocation = location;
+        this.mEpochSeconds = epochMilliSeconds/1000;
     }
 
     public double getmMagnitude() {
         return mMagnitude;
     }
 
-    public String getmPlace() {
-        return mPlace;
+    public String getmLocation() {
+        return mLocation;
     }
 
     public long getmEpochSeconds() {
