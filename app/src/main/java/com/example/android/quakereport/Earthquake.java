@@ -14,6 +14,15 @@ public class Earthquake {
         this.mEpochSeconds = epochMilliSeconds/1000;
     }
 
+    @Override
+    public String toString() {
+        return "Earthquake{" +
+                "mMagnitude=" + mMagnitude +
+                ", mLocation='" + mLocation + '\'' +
+                ", mEpochSeconds=" + mEpochSeconds +
+                '}';
+    }
+
     public double getmMagnitude() {
         return mMagnitude;
     }
