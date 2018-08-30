@@ -10,10 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
-import org.threeten.bp.LocalDateTime;
-import org.threeten.bp.ZoneOffset;
-import org.threeten.bp.format.DateTimeFormatter;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,14 +39,14 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         // Get the magnitude value from the current Eartquake object, convert double to String and
         // set this text on the tw_magnitude TextView
-        magnitudeTextView.setText(String.valueOf(currentEartquake.getmMagnitude()));
+        magnitudeTextView.setText(String.valueOf(currentEartquake.getMagnitude()));
 
         // Find the TextView in the list_item.xml layout with the ID tw_place
         TextView placeTextView = (TextView) listItemView.findViewById(R.id.location);
 
         // Get the place of the eartquake from the current Eartquake object and
         // set this text on the tw_place TextView
-        placeTextView.setText(currentEartquake.getmLocation());
+        placeTextView.setText(currentEartquake.getLocation());
 
         // Find the TextView in the list_item.xml layout with the ID tw_date
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
@@ -58,7 +54,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Get the time of the eartquake from the current Earthquake object, convert it to String by specified format and
         // set this text on the tw_date TextView
 
-        long timeInMilliSeconds = currentEartquake.getmEpochSeconds();
+        long timeInMilliSeconds = currentEartquake.getTimeInMilliSeconds();
 
         //standart Java library
         Date dateObject = new Date (timeInMilliSeconds);

@@ -5,13 +5,13 @@ public class Earthquake {
     //instance fields
     private double mMagnitude;
     private String mLocation;
-    private long mEpochSeconds;
+    private long mTimeInMilliSeconds;
 
     //constructor
-    public Earthquake(double magnitude, String location, long epochMilliSeconds) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds) {
         this.mMagnitude = magnitude;
         this.mLocation = location;
-        this.mEpochSeconds = epochMilliSeconds/1000;
+        this.mTimeInMilliSeconds = timeInMilliseconds/1000;
     }
 
     @Override
@@ -19,19 +19,19 @@ public class Earthquake {
         return "Earthquake{" +
                 "mMagnitude=" + mMagnitude +
                 ", mLocation='" + mLocation + '\'' +
-                ", mEpochSeconds=" + mEpochSeconds +
+                ", mEpochSeconds=" + mTimeInMilliSeconds +
                 '}';
     }
 
-    public double getmMagnitude() {
+    public double getMagnitude() {
         return mMagnitude;
     }
 
-    public String getmLocation() {
+    public String getLocation() {
         return mLocation;
     }
 
-    public long getmEpochSeconds() {
-        return mEpochSeconds;
+    public long getTimeInMilliSeconds() {
+        return mTimeInMilliSeconds;
     }
 }
