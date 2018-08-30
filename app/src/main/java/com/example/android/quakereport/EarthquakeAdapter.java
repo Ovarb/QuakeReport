@@ -15,7 +15,9 @@ import org.threeten.bp.LocalDateTime;
 import org.threeten.bp.ZoneOffset;
 import org.threeten.bp.format.DateTimeFormatter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class EarthquakeAdapter extends ArrayAdapter {
@@ -56,11 +58,18 @@ public class EarthquakeAdapter extends ArrayAdapter {
 
         // Get the time of the eartquake from the current Earthquake object, convert it to String by specified format and
         // set this text on the tw_date TextView
-        LocalDateTime dateTime =  LocalDateTime.ofEpochSecond(currentEartquake.getmEpochSeconds(), 0, ZoneOffset.UTC);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
-        dateTextView.setText(dateTime.format(formatter));
+        long timeInMilliSeconds = currentEartquake.getmEpochSeconds();
 
+        Date dateObject = new Date (timeInMilliSeconds);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        String dateToDisplay = dateFormatter.format(dateObject);
+
+        //LocalDateTime dateTime =  LocalDateTime.ofEpochSecond(timeInMilliSeconds, 0, ZoneOffset.UTC);
+        //DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
+        //String dateToDisplay = dateTime.format(dateFormatter);
+
+        dateTextView.setText(dateToDisplay);
 
         // Return the whole list item layout (containing 3 TextViews) so that it can be shown in the ListView
         return listItemView;
