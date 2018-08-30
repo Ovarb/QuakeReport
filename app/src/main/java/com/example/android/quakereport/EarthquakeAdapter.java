@@ -60,10 +60,12 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         long timeInMilliSeconds = currentEartquake.getmEpochSeconds();
 
+        //standart Java library
         Date dateObject = new Date (timeInMilliSeconds);
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
         String dateToDisplay = dateFormatter.format(dateObject);
 
+        //threeten library
         //LocalDateTime dateTime =  LocalDateTime.ofEpochSecond(timeInMilliSeconds, 0, ZoneOffset.UTC);
         //DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d, yyyy");
         //String dateToDisplay = dateTime.format(dateFormatter);
